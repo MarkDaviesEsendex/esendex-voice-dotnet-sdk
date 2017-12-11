@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CollstreamVoiceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_ICollstreamVoiceService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss10>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" />
+      <xsd:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.DataContracts" />
+      <xsd:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.Validation.ValidationErrors" />
+      <xsd:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICollstreamVoiceService_CreateCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_CreateCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_CreateCampaign_AccessDeniedFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q1:AccessDeniedFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_CreateCampaign_CallflowNotFoundFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q2:CallflowNotFoundFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_CreateCampaign_CampaignDoesNotExistFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q3:CampaignDoesNotExistFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_CreateCampaign_InvalidCampaignSettingFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q4:InvalidCampaignSettingFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_AddContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddContact" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_AddContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_AddContact_CampaignDoesNotExistFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q5:CampaignDoesNotExistFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_AddContact_AccessDeniedFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q6:AccessDeniedFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_ScheduleContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:ScheduleContact" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_ScheduleContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ScheduleContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_ScheduleContact_AccessDeniedFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q7:AccessDeniedFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_ScheduleContact_CampaignDoesNotExistFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q8:CampaignDoesNotExistFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_MakeCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeCall" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_MakeCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_MakeCall_NoPhoneNumbersForContactFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q9:NoPhoneNumbersForContactFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_MakeCall_CallflowNotFoundFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q10:CallflowNotFoundFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_ScheduleCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:ScheduleCall" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_ScheduleCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ScheduleCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_ScheduleCall_CallflowNotFoundFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q11:CallflowNotFoundFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_ScheduleCall_NoPhoneNumbersForContactFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" name="detail" element="q12:NoPhoneNumbersForContactFaultException" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_GetCallflows_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCallflows" />
+  </wsdl:message>
+  <wsdl:message name="ICollstreamVoiceService_GetCallflows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCallflowsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICollstreamVoiceService">
+    <wsdl:operation name="CreateCampaign">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollstreamVoiceService/CreateCampaign" message="tns:ICollstreamVoiceService_CreateCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollstreamVoiceService/CreateCampaignResponse" message="tns:ICollstreamVoiceService_CreateCampaign_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/CreateCampaignAccessDeniedFaultExceptionFault" name="AccessDeniedFaultExceptionFault" message="tns:ICollstreamVoiceService_CreateCampaign_AccessDeniedFaultExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/CreateCampaignCallflowNotFoundFaultExceptionFault" name="CallflowNotFoundFaultExceptionFault" message="tns:ICollstreamVoiceService_CreateCampaign_CallflowNotFoundFaultExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/CreateCampaignCampaignDoesNotExistFaultExceptionFault" name="CampaignDoesNotExistFaultExceptionFault" message="tns:ICollstreamVoiceService_CreateCampaign_CampaignDoesNotExistFaultExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/CreateCampaignInvalidCampaignSettingFaultExceptionFault" name="InvalidCampaignSettingFaultExceptionFault" message="tns:ICollstreamVoiceService_CreateCampaign_InvalidCampaignSettingFaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollstreamVoiceService/AddContact" message="tns:ICollstreamVoiceService_AddContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollstreamVoiceService/AddContactResponse" message="tns:ICollstreamVoiceService_AddContact_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/AddContactCampaignDoesNotExistFaultExceptionFault" name="CampaignDoesNotExistFaultExceptionFault" message="tns:ICollstreamVoiceService_AddContact_CampaignDoesNotExistFaultExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/AddContactAccessDeniedFaultExceptionFault" name="AccessDeniedFaultExceptionFault" message="tns:ICollstreamVoiceService_AddContact_AccessDeniedFaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ScheduleContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollstreamVoiceService/ScheduleContact" message="tns:ICollstreamVoiceService_ScheduleContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollstreamVoiceService/ScheduleContactResponse" message="tns:ICollstreamVoiceService_ScheduleContact_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/ScheduleContactAccessDeniedFaultExceptionFault" name="AccessDeniedFaultExceptionFault" message="tns:ICollstreamVoiceService_ScheduleContact_AccessDeniedFaultExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/ScheduleContactCampaignDoesNotExistFaultExceptionFault" name="CampaignDoesNotExistFaultExceptionFault" message="tns:ICollstreamVoiceService_ScheduleContact_CampaignDoesNotExistFaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeCall">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollstreamVoiceService/MakeCall" message="tns:ICollstreamVoiceService_MakeCall_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollstreamVoiceService/MakeCallResponse" message="tns:ICollstreamVoiceService_MakeCall_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/MakeCallNoPhoneNumbersForContactFaultExceptionFault" name="NoPhoneNumbersForContactFaultExceptionFault" message="tns:ICollstreamVoiceService_MakeCall_NoPhoneNumbersForContactFaultExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/MakeCallCallflowNotFoundFaultExceptionFault" name="CallflowNotFoundFaultExceptionFault" message="tns:ICollstreamVoiceService_MakeCall_CallflowNotFoundFaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ScheduleCall">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollstreamVoiceService/ScheduleCall" message="tns:ICollstreamVoiceService_ScheduleCall_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollstreamVoiceService/ScheduleCallResponse" message="tns:ICollstreamVoiceService_ScheduleCall_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/ScheduleCallCallflowNotFoundFaultExceptionFault" name="CallflowNotFoundFaultExceptionFault" message="tns:ICollstreamVoiceService_ScheduleCall_CallflowNotFoundFaultExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICollstreamVoiceService/ScheduleCallNoPhoneNumbersForContactFaultExceptionFault" name="NoPhoneNumbersForContactFaultExceptionFault" message="tns:ICollstreamVoiceService_ScheduleCall_NoPhoneNumbersForContactFaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallflows">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollstreamVoiceService/GetCallflows" message="tns:ICollstreamVoiceService_GetCallflows_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollstreamVoiceService/GetCallflowsResponse" message="tns:ICollstreamVoiceService_GetCallflows_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICollstreamVoiceService" type="tns:ICollstreamVoiceService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_ICollstreamVoiceService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateCampaign">
+      <soap:operation soapAction="http://tempuri.org/ICollstreamVoiceService/CreateCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedFaultExceptionFault">
+        <soap:fault use="literal" name="AccessDeniedFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="CallflowNotFoundFaultExceptionFault">
+        <soap:fault use="literal" name="CallflowNotFoundFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="CampaignDoesNotExistFaultExceptionFault">
+        <soap:fault use="literal" name="CampaignDoesNotExistFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCampaignSettingFaultExceptionFault">
+        <soap:fault use="literal" name="InvalidCampaignSettingFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <soap:operation soapAction="http://tempuri.org/ICollstreamVoiceService/AddContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CampaignDoesNotExistFaultExceptionFault">
+        <soap:fault use="literal" name="CampaignDoesNotExistFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="AccessDeniedFaultExceptionFault">
+        <soap:fault use="literal" name="AccessDeniedFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ScheduleContact">
+      <soap:operation soapAction="http://tempuri.org/ICollstreamVoiceService/ScheduleContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessDeniedFaultExceptionFault">
+        <soap:fault use="literal" name="AccessDeniedFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="CampaignDoesNotExistFaultExceptionFault">
+        <soap:fault use="literal" name="CampaignDoesNotExistFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MakeCall">
+      <soap:operation soapAction="http://tempuri.org/ICollstreamVoiceService/MakeCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NoPhoneNumbersForContactFaultExceptionFault">
+        <soap:fault use="literal" name="NoPhoneNumbersForContactFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="CallflowNotFoundFaultExceptionFault">
+        <soap:fault use="literal" name="CallflowNotFoundFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ScheduleCall">
+      <soap:operation soapAction="http://tempuri.org/ICollstreamVoiceService/ScheduleCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CallflowNotFoundFaultExceptionFault">
+        <soap:fault use="literal" name="CallflowNotFoundFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NoPhoneNumbersForContactFaultExceptionFault">
+        <soap:fault use="literal" name="NoPhoneNumbersForContactFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallflows">
+      <soap:operation soapAction="http://tempuri.org/ICollstreamVoiceService/GetCallflows" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CollstreamVoiceService">
+    <wsdl:port name="BasicHttpBinding_ICollstreamVoiceService" binding="tns:BasicHttpBinding_ICollstreamVoiceService">
+      <soap:address location="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

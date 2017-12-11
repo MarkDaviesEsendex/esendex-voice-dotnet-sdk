@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7af2fb8f-1cd3-4ecb-a00b-857b57b809bb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://api.collstream.co.uk/voice/v1_0/CollstreamVoiceService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CollstreamVoiceService.xsd" MetadataType="Schema" ID="1ce5a099-663a-483e-b0e3-e98638e7225d" SourceId="1" SourceUrl="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CollstreamVoiceService1.xsd" MetadataType="Schema" ID="b2a94e9f-8d6c-49f7-bbae-8a5f8c519e95" SourceId="1" SourceUrl="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CollstreamVoiceService2.xsd" MetadataType="Schema" ID="3e6b2bdf-bd9b-4d6a-87e9-9e34831fd74f" SourceId="1" SourceUrl="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CollstreamVoiceService3.xsd" MetadataType="Schema" ID="21639e8e-fbd1-4124-88f5-c8cab1830198" SourceId="1" SourceUrl="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CollstreamVoiceService4.xsd" MetadataType="Schema" ID="2f4dc888-307a-4fad-a4f2-1137eaed20dd" SourceId="1" SourceUrl="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd5" />
+    <MetadataFile FileName="CollstreamVoiceService.wsdl" MetadataType="Wsdl" ID="51336ee1-84d6-4276-9f28-2967069ff76c" SourceId="1" SourceUrl="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?wsdl" />
+    <MetadataFile FileName="CollstreamVoiceService5.xsd" MetadataType="Schema" ID="7440af72-c855-43ff-9bee-f28d1d109607" SourceId="1" SourceUrl="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CollstreamVoiceService.disco" MetadataType="Disco" ID="ec5391a2-8137-4bcc-af0d-ab00d7374777" SourceId="1" SourceUrl="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

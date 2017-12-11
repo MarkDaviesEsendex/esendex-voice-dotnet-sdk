@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.FaultExceptions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.Validation.ValidationErrors" />
+  <xs:complexType name="AccessDeniedFaultException">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="AccessDeniedFaultException" nillable="true" type="tns:AccessDeniedFaultException" />
+  <xs:complexType name="CallflowNotFoundFaultException">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="CallflowNotFoundFaultException" nillable="true" type="tns:CallflowNotFoundFaultException" />
+  <xs:complexType name="CampaignDoesNotExistFaultException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CampaignId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CampaignDoesNotExistFaultException" nillable="true" type="tns:CampaignDoesNotExistFaultException" />
+  <xs:complexType name="InvalidCampaignSettingFaultException">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.Validation.ValidationErrors" minOccurs="0" name="Errors" nillable="true" type="q1:ArrayOfAbstractCampaignSettingValidationError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvalidCampaignSettingFaultException" nillable="true" type="tns:InvalidCampaignSettingFaultException" />
+  <xs:complexType name="NoPhoneNumbersForContactFaultException">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="NoPhoneNumbersForContactFaultException" nillable="true" type="tns:NoPhoneNumbersForContactFaultException" />
+</xs:schema>

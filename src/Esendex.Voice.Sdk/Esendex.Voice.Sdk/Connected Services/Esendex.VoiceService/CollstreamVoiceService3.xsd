@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="CampaignSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnswerphoneOptionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="BlacklistOptionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="CallCascadeOptionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="CallRetryOptionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="CallerLineIdentityId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ConcurrentCalls" type="xs:int" />
+      <xs:element minOccurs="0" name="EndingAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsAllowedToRollOver" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MinutesBetweenRetryAttemptsWhenEngaged" type="xs:int" />
+      <xs:element minOccurs="0" name="MinutesBetweenRetryAttemptsWhenNoAnswer" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberOfAttempts" type="xs:int" />
+      <xs:element minOccurs="0" name="ShouldLeaveAnswerphone" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StartingAt" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CampaignSettings" nillable="true" type="tns:CampaignSettings" />
+  <xs:complexType name="Contact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Numbers" nillable="true" type="tns:ArrayOfContactNumber" />
+      <xs:element minOccurs="0" name="Variables" nillable="true" type="tns:ArrayOfContactVariable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contact" nillable="true" type="tns:Contact" />
+  <xs:complexType name="ArrayOfContactNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactNumber" nillable="true" type="tns:ContactNumber" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContactNumber" nillable="true" type="tns:ArrayOfContactNumber" />
+  <xs:complexType name="ContactNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OrderIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactNumber" nillable="true" type="tns:ContactNumber" />
+  <xs:complexType name="ArrayOfContactVariable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactVariable" nillable="true" type="tns:ContactVariable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContactVariable" nillable="true" type="tns:ArrayOfContactVariable" />
+  <xs:complexType name="ContactVariable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactVariable" nillable="true" type="tns:ContactVariable" />
+  <xs:complexType name="ArrayOfCallflow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Callflow" nillable="true" type="tns:Callflow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCallflow" nillable="true" type="tns:ArrayOfCallflow" />
+  <xs:complexType name="Callflow">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CallerLineIdentities" nillable="true" type="tns:ArrayOfCallerLineIdentity" />
+      <xs:element minOccurs="0" name="CallflowId" type="ser:guid" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Parameters" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferNumbers" nillable="true" type="tns:ArrayOfTransferNumber" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Callflow" nillable="true" type="tns:Callflow" />
+  <xs:complexType name="ArrayOfCallerLineIdentity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CallerLineIdentity" nillable="true" type="tns:CallerLineIdentity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCallerLineIdentity" nillable="true" type="tns:ArrayOfCallerLineIdentity" />
+  <xs:complexType name="CallerLineIdentity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CallerLineIdentityId" type="ser:guid" />
+      <xs:element minOccurs="0" name="IdentityText" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CallerLineIdentity" nillable="true" type="tns:CallerLineIdentity" />
+  <xs:complexType name="ArrayOfTransferNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransferNumber" nillable="true" type="tns:TransferNumber" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransferNumber" nillable="true" type="tns:ArrayOfTransferNumber" />
+  <xs:complexType name="TransferNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderPosition" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransferNumber" nillable="true" type="tns:TransferNumber" />
+</xs:schema>

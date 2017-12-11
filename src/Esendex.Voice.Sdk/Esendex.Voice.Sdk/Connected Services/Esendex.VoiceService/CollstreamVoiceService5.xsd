@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://api.collstream.co.uk/Voice/v1_0/CollstreamVoiceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.DataContracts" />
+  <xs:element name="CreateCampaign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="callflowId" type="q1:guid" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.DataContracts" minOccurs="0" name="settings" nillable="true" type="q2:CampaignSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCampaignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="CreateCampaignResult" type="q3:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="campaignId" type="q4:guid" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.DataContracts" minOccurs="0" name="contact" nillable="true" type="q5:Contact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AddContactResult" type="q6:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScheduleContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="campaignId" type="q7:guid" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.DataContracts" minOccurs="0" name="contact" nillable="true" type="q8:Contact" />
+        <xs:element minOccurs="0" name="dateTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScheduleContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ScheduleContactResult" type="q9:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.DataContracts" minOccurs="0" name="contact" nillable="true" type="q10:Contact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="MakeCallResult" type="q11:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScheduleCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.DataContracts" minOccurs="0" name="contact" nillable="true" type="q12:Contact" />
+        <xs:element minOccurs="0" name="whenToMakeCall" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScheduleCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ScheduleCallResult" type="q13:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCallflows">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCallflowsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Collstream.Services.Application.VoiceMessaging.PublicApi.DataContracts" minOccurs="0" name="GetCallflowsResult" nillable="true" type="q14:ArrayOfCallflow" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
